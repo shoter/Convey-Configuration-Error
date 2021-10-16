@@ -8,4 +8,8 @@
       <ProjectReference Include="..\ProviderApplication\ProviderApplication.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Convey" Version="0.5.512" />
+    </ItemGroup>
+
 </Project>
