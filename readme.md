@@ -34,9 +34,10 @@ By using word using on `ServiceProvider` Convey ensures it is going to be dispos
 
 1. Stop building service provider from service collection provided by users. It can have unintended side effects that are very hard to diagnose. 
 
-Instead supply your convey builder with `IConfiguration` instance in addition to `ServiceCollection`. `IConfiguration` should be easily accessible from every `Startup.cs`. Unfortunately it is going to be a breaking change :/.
+Instead supply your convey builder with `IConfiguration` instance in addition to `ServiceCollection`. `IConfiguration` should be easily accessible from every `Startup.cs`. Therefore all existing users should be able to modify their code with ease to cope with this change.
+Unfortunately it is going to be a breaking change :/.
 
-Additionally this approach would require an inner instance of `ServiceCollection` to instantiate your objects during configuring process to finally add them to main application's `ServiceCollection` that was provided to Convey. (Personally I think this should be reworked as it looks weird to constantly build and dispose service providers. This is my own opinion though)
+Additionally this approach would require an inner instance of `ServiceCollection` to instantiate your objects during configuring process. All configured objects could be added to main application's `ServiceCollection` that was provided to Convey. (Personally I think this should be reworked as it looks weird to constantly build and dispose service providers. This is my own opinion though)
 
 This is an approach that is going to eliminate all possible side effects of using `ServiceCollection` you do **not own**.
 
