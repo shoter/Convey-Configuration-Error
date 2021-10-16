@@ -10,6 +10,12 @@ This repository was created to provide an example of wrong convey behavior when 
 
 After executing those steps **all** configuration providers are going to stop reporting configuration changes. 
 
+## Launching code inside repository
+
+Just launch it and observer output. Time value is not going change.
+
+You can also comment `AddConvey` line in `Startup.cs` to see that after you commented it then time output is working as it should. 
+
 ## Workaround
 
 You can create simple service class that requires `IConfiguration` instance and reload it manually detecting moment when you should do that.
